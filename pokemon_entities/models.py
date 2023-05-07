@@ -3,6 +3,8 @@ from django.db import models  # noqa F401
 
 class Pokemon(models.Model):
     title = models.CharField(max_length=200)
+    title_en = models.CharField(max_length=100)
+    title_jp = models.CharField(max_length=100)
     image = models.ImageField(null=True)
     description = models.TextField(blank=True)
 

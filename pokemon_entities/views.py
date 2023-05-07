@@ -75,6 +75,8 @@ def show_pokemon(request, pokemon_id):
         'map': folium_map._repr_html_(), 'pokemon': {
             "img_url": pokemon.image.url,
             "title_ru": pokemon.title,
+            "title_en": pokemon.title_en,
+            "title_jp": pokemon.title_jp,
             "pokemon_id": pokemon.id,
             "description": pokemon.description
         }
