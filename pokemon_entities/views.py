@@ -71,13 +71,24 @@ def show_pokemon(request, pokemon_id):
             pokemon_entity.longitude,
             pokemon.image.path
         )
+    if pokemon.next_evolution:
+        next_evolution = {
+                "title_ru": pokemon.next_evolution.title,
+                "pokemon_id": pokemon.next_evolution.id,
+                "img_url":  pokemon.next_evolution.image.url
+            }
+    else:
+        next_evolution = {}
+
     return render(request, 'pokemon.html', context={
-        'map': folium_map._repr_html_(), 'pokemon': {
+        'map': folium_map._repr_html_(), 
+        'pokemon': {
             "img_url": pokemon.image.url,
             "title_ru": pokemon.title,
             "title_en": pokemon.title_en,
             "title_jp": pokemon.title_jp,
             "pokemon_id": pokemon.id,
-            "description": pokemon.description
+            "description": pokemon.description,
+            "next_evolution" : next_evolution
         }
     })
