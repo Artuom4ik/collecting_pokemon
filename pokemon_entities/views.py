@@ -71,11 +71,23 @@ def show_pokemon(request, pokemon_id):
             pokemon_entity.longitude,
             pokemon.image.path
         )
-    if pokemon.next_evolution:
+
+    if pokemon.previous_evolution:
+        previous_evolution = {
+            "title_ru": pokemon.previous_evolution.title,
+            "pokemon_id": pokemon.previous_evolution.id,
+            "img_url":  pokemon.previous_evolution.image.url}
+
+    else:
+        previous_evolution = {}
+
+    
+    next_pokemon = pokemon.next_evolutions.all().first()    
+    if next_pokemon:
         next_evolution = {
-                "title_ru": pokemon.next_evolution.title,
-                "pokemon_id": pokemon.next_evolution.id,
-                "img_url":  pokemon.next_evolution.image.url
+                "title_ru": next_pokemon.title,
+                "pokemon_id": next_pokemon.id,
+                "img_url":  next_pokemon.image.url
             }
     else:
         next_evolution = {}
@@ -89,6 +101,7 @@ def show_pokemon(request, pokemon_id):
             "title_jp": pokemon.title_jp,
             "pokemon_id": pokemon.id,
             "description": pokemon.description,
+            "previous_evolution": previous_evolution,
             "next_evolution" : next_evolution
         }
     })
