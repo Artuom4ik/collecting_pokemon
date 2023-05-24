@@ -8,6 +8,7 @@ pokemon_image/
 
 # Distribution / packaging
 .Python
+media/
 build/
 develop-eggs/
 dist/
