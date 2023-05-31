@@ -72,11 +72,11 @@ def show_pokemon(request, pokemon_id):
             pokemon.image.path
         )
 
-    if pokemon.previous_evolution:
+    if pokemon.previous_evolutions:
         previous_evolution = {
-            "title_ru": pokemon.previous_evolution.title,
-            "pokemon_id": pokemon.previous_evolution.id,
-            "img_url":  pokemon.previous_evolution.image.url}
+            "title_ru": pokemon.previous_evolutions.title,
+            "pokemon_id": pokemon.previous_evolutions.id,
+            "img_url":  pokemon.previous_evolutions.image.url}
 
     else:
         previous_evolution = {}

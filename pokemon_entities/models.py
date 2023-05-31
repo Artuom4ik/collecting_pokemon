@@ -7,7 +7,7 @@ class Pokemon(models.Model):
     title_jp = models.CharField(max_length=100, verbose_name="Название(японский)")
     image = models.ImageField(null=True, verbose_name="Картинка")
     description = models.TextField(blank=True, verbose_name="Описание")
-    previous_evolution = models.ForeignKey(
+    previous_evolutions = models.ForeignKey(
         "Pokemon",
         related_name="next_evolutions", 
         on_delete=models.SET_NULL, # on_delete - https://dvmn.org/encyclopedia/django_orm/on_delete/
