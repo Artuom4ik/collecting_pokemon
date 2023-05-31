@@ -81,7 +81,6 @@ def show_pokemon(request, pokemon_id):
     else:
         previous_evolution = {}
 
-    
     next_pokemon = pokemon.next_evolutions.all().first()    
     if next_pokemon:
         next_evolution = {
